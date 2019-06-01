@@ -1,0 +1,38 @@
+body {
+    background: #dfdfdf; 
+    color: #000;
+    overflow: hidden;
+}
+
+p.notify {
+    background: #C3C3c3;
+    margin: 0;
+    padding: 20px;
+    text-transform: uppercase;
+    -webkit-app-region: drag;
+}
+
+.row2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px;
+}
+
+input {
+    padding: 12px;
+}
+
+#closeBtn {
+    cursor: pointer;
+    padding: 20px;
+    text-decoration: underline;
+}
+
+a {
+    color: #000;  
+}
+
+html, body {
+    background: rgba(223, 223, 223, 0.8);
+}

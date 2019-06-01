@@ -1,4 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const {
+  app,
+  BrowserWindow,
+  Menu
+} = require('electron')
+const shell = require('electron').shell
 //const path = require('path')
 //const url = require('url')
 
@@ -6,7 +11,7 @@ const { app, BrowserWindow } = require('electron')
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
     width: 800,
@@ -17,7 +22,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.loadFile('source/index.html')
 
   // Open the DevTools.
   win.webContents.openDevTools()
@@ -29,6 +34,35 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   })
+
+  var menu = Menu.buildFromTemplate([{
+      label: 'Menü',
+      submenu: [{
+          label: 'Értesítési érték beállítása'
+        },
+        {
+          label: 'Instrumentum',
+          click() {
+            shell.openExternal('http://coimarketcap.com')
+          }
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Kilépés',
+          click() { 
+            app.quit()
+          }
+        }
+      ]
+    },
+    {
+      label: 'Infó'
+    }
+  ])
+
+  Menu.setApplicationMenu(menu);
 }
 
 // This method will be called when Electron has finished
